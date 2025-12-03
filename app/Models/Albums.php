@@ -13,4 +13,12 @@ class Albums extends Model
     public $timestamps = false;
 
     protected $fillable = ['Title','ArtistId'];
+
+    public function artists(){
+        return $this->belongsto(User::class);
+    }
+
+    public function tracks(){
+        return $this->hasMany(Tracks::class);
+    }
 }

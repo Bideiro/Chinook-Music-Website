@@ -2,18 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Albums;
+use App\Models\Artists;
 use Illuminate\Http\Request;
 
-class AlbumsController extends Controller
+class ArtistsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $albums = Albums::all();
-        return inertia('Albums/Albums', ['Albums' => $albums]);
+        $artiststats = Artists::select('Name')->withCount(['tracks as Total_tracks'])->get();
+
+        $columns = array_keys($artiststats->first()->getAttributes());
+
+        return inertia('Artists/Artists',
+             ['data' => $artiststats,
+                    'datacols' => $columns]);
     }
 
     /**
@@ -35,7 +40,7 @@ class AlbumsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Albums $albums)
+    public function show(Artists $artists)
     {
         //
     }
@@ -43,7 +48,7 @@ class AlbumsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Albums $albums)
+    public function edit(Artists $artists)
     {
         //
     }
@@ -51,7 +56,7 @@ class AlbumsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Albums $albums)
+    public function update(Request $request, Artists $artists)
     {
         //
     }
@@ -59,7 +64,7 @@ class AlbumsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Albums $albums)
+    public function destroy(Artists $artists)
     {
         //
     }
