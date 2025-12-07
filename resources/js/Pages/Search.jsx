@@ -40,6 +40,10 @@ function Search({ tracks, albums }) {
             <div className="ml-10 mr-10 mt-10 font-montserrat text-4xl">
                 Feel Free to browse our library.
             </div>
+            <div>
+                insert select headlessui
+            </div>
+
             <div className="ml-10 mr-10">
                 <div className="p-5 flex justify-end ">
                     <Input type="text" name="searchterm" className="border h-8 w-full max-w-xs p-2 rounded-l-full data-hover:shadow"

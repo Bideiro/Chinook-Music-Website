@@ -18,7 +18,7 @@ export default function Navbar() {
                 <Link className="hover:text-gray-300" href="/search">Search</Link>
             </div>
             <div className=" flex justify-end mr-4">
-                <a className="" href="">Login</a>
+                <a className="" href="/login">Login</a>
             </div>
         </nav>
     )
